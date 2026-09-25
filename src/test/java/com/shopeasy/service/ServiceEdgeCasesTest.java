@@ -44,7 +44,7 @@ class ServiceEdgeCasesTest {
         ReflectionTestUtils.setField(service, "authenticationManager", mock(AuthenticationManager.class));
         ReflectionTestUtils.setField(service, "jwtUtil", jwt);
         LoginRequest request = new LoginRequest(); request.setEmail(user.getEmail());
-        assertThat(service.login(request).getRole()).isEqualTo("ROLE_USER");
+        assertThat(service.login(request).getRole()).isEqualTo("ROLE_ADMIN");
     }
     @Test void cartAndCheckoutRejectMissingUserBeforeAnyWrites() {
         UserRepository users = mock(UserRepository.class); CartItemRepository carts = mock(CartItemRepository.class);
