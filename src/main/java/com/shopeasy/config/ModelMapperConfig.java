@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ModelMapperConfig {
 
-    @Bean
+    //@Bean
     public ModelMapper modelMapper() {
         ModelMapper mapper = new ModelMapper();
         // STRICT: solo mapea propiedades con el mismo nombre exacto
