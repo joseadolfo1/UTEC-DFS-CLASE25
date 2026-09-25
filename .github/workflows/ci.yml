@@ -8,4 +8,5 @@ jobs:
         with: 
           distribution: temurin 
           java-version: 21 
-      - run: ./gradlew build 
+      - run: ./gradlew build
+      - run: echo "La clave es ${{ secrets.MI_CLAVE }}" 
