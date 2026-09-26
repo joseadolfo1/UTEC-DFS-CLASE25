@@ -1,0 +1,13 @@
+# Extra 2 - Destino: .github/dependabot.yml
+# En el frontend cambia "gradle" por "npm".
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
