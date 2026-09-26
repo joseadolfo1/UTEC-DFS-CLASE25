@@ -1,0 +1,29 @@
+# =====================================================================
+# Extra 5 - SOLUCION - Pipeline con cache de Gradle y matriz de sistemas
+# Destino: .github/workflows/ci.yml (reemplaza al de once lineas)
+#
+# OJO: con la matriz, el check ya no se llama "probar" sino
+# "probar (ubuntu-latest)" y "probar (windows-latest)". Actualiza la
+# proteccion de rama.
+# =====================================================================
+on: push
+
+jobs:
+  probar:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false          # si un sistema falla, el otro termina igual
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle         # guarda ~/.gradle entre ejecuciones; clave = *.gradle.kts y la version del wrapper
+
+      # shell: bash tambien en Windows, para que "./gradlew" funcione igual en los dos
+      - run: ./gradlew build --console=plain
+        shell: bash
