@@ -41,7 +41,7 @@ jobs:
           # TODO 3: usuario y token desde los secretos del repositorio
           username: ${{ secrets.DOCKERHUB_USUARIO }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@v7
         with:
           context: .
           push: true
