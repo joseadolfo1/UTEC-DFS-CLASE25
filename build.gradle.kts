@@ -34,7 +34,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
 
     // ModelMapper: convierte entidades a DTOs
-    implementation("org.modelmapper:modelmapper:3.2.0")
+    implementation("org.modelmapper:modelmapper:3.2.6")
 
     // JWT
     implementation("io.jsonwebtoken:jjwt-api:0.12.3")
